@@ -1,0 +1,26 @@
+{
+  "top": [
+    {
+      "vards": "Māris",
+      "rezultats": 100,
+      "atrums": 100,
+      "skola": "RVT"
+    },
+    {
+      "vards": "Anna",
+      "rezultats": 250
+    },
+    {
+      "vards": "Aija",
+      "rezultats": 1000
+    },
+    {
+      "vards": "Juris",
+      "rezultats": "100"
+    },
+    {
+      "vards": "Liene",
+      "rezultats": "150"
+    }
+  ]
+}

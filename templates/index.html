@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/stils.css"/>
+    <title>Burtu spēle</title>
+   <link rel="stylesheet" href="/static/stils.css">
+</head>
+<body>
+    <ul>
+        <li><a href="/noteikumi">Noteikumi</a></li>
+        <li><a href="/speles_rezultati">Rezultāti</a></li>
+      <li><a href="/autors">Par autoru</a></li>
+    </ul>
+    <p>Ievadi savu vārdu:</p>
+   
+<input type="text" name="name" size="24" onChange="msg(this.form)">
+
+    <hr/>
+    <p>Izvēlies burtu skaitu:</p>
+
+    <select id='izvele'>
+        <option value="4">4 burti</option>
+        <option value="5">5 burti</option>
+        <option value="6">6 burti</option>
+        <option value="7">7 burti</option>
+        <option value="8">8 burti</option>
+        <option value="9">9 burti</option>
+        <option value="10">10 burti</option>
+    </select>
+
+    <button id="generet">Ģenerēt vārdu</button>
+ 
+
+    <div id="spele"></div>
+
+    <script src="static/js/galenais2.js"></script>
+    <script src="static/js/spele.js"></script>
+</body>
+</html>
