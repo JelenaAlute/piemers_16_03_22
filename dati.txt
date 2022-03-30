@@ -1,3 +1,9 @@
 1223
 data
 vakars
+otrdiena
+ceturtdienasveiki
+sodien
+piektdiena
+sestdiena
+svetdiena

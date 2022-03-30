@@ -13,7 +13,7 @@ document.getElementById('poga').addEventListener('click', () => {
 async function sutitDatus(dati) {
   let atbilde = await fetch('/demoPoga', {
     method: 'POST',
-    header: {
+    headers: {
       'Content-Type': 'application/json'
     },
       body: JSON.stringify(dati)
@@ -27,7 +27,7 @@ async function sutitDatus(dati) {
   sanemtDatus();
 }
 
-async function sanemtDatus() {
+async function sanemtDatus(dati) {
   let atbilde = await fetch('/demoPoga')
 
   let data = await atbilde.text();
