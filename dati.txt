@@ -1,9 +1,3 @@
-1223
-data
-vakars
-otrdiena
-ceturtdienasveiki
-sodien
-piektdiena
-sestdiena
-svetdiena
+Sveiki trešdiena
+Anna
+Sveiki
