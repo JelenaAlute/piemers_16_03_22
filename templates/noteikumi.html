@@ -1,13 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noteikumi</title>
-   <link rel="stylesheet" href="/static/stils.css">
-</head>
-<body>
+{% extends "layout.html"%}
+{% block saturs%}
   <div class="header">
     <h1>
       Burtu spēles noteikumi
@@ -19,8 +11,11 @@
         <a href="/">Atgriezties uz sākumu</a>
         
       </h3>
-      <p>1.Spēles sākumā jāizvēlas burtu skaits vārdā.</p>
-      <p>2. Par garāku vārdu salikšanu var iegūt vairāk punktu.</p>
+      <p>1. Spēles sākumā ailite jāievada savs vārds un jānospiež pogu.</p>
+      <p>2. Tālāk jāizvēlas burtu skaits vārdā.</p>
+      <p>3. Jānospiež pogu "Ģenerēt vārdu".</p>
+      <p>4. Tālāk jāeivada burti pareiza secība, lai sānāk vārds.</p>
+
+      <p>5. Par garāku vārdu salikšanu var iegūt vairāk punktu.</p>
         
-</body>
-</html>
+{% endblock%}

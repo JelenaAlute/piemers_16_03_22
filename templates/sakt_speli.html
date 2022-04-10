@@ -1,0 +1,52 @@
+{% extends "layout.html"%}
+{% block saturs%}
+
+  <hr/>
+<div class="header">
+    <h1>
+      Burtu spēle 
+      
+    </h1>
+
+    <div class="header">
+     
+   <p>Ievadi savu vārdu:</p>
+  <input type="text" id="ievade"></input>
+  <button type="button" id="poga">Poga</button>
+
+  <div id="data"></div>
+  
+  <script type="text/javascript" src="static/js/demo.js"></script>
+   
+
+
+    <hr/>
+    <p>Izvēlies burtu skaitu:</p>
+
+    <select id='izvele'>
+        <option value="4">4 burti</option>
+        <option value="5">5 burti</option>
+        <option value="6">6 burti</option>
+        <option value="7">7 burti</option>
+        <option value="8">8 burti</option>
+        <option value="9">9 burti</option>
+        <option value="10">10 burti</option>
+    </select>
+
+    <button id="generet">Ģenerēt vārdu</button>
+ 
+
+    <div id="spele"></div>
+
+
+
+      <hr/>
+      <h3>
+        <a href="/">Atgriezties uz sākumu</a>
+        
+      </h3>
+
+      
+    <script src="static/js/galenais2.js"></script>
+    <script src="static/js/spele.js"></script>
+ {% endblock%}

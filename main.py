@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 import json
+import sqlite3
 
 app = Flask('app')
 app.config['JSON_AS_ASCII'] = False
@@ -37,6 +38,41 @@ def noteikumi():
 @app.route('/speles_rezultati')
 def speles_rezultati():
   return render_template("speles_rezultati.html")
+
+@app.route('/sakt_speli')
+def sakt_speli():
+  return render_template("sakt_speli.html")
+
+@app.route('/autors')
+def autors():
+  return render_template("autors.html")
+
+@app.route('/vardi/<skaits>')
+def vardi(skaits):
+    DB = sqlite3.connect("dati.db")
+    SQL = DB.cursor()
+
+    SQL.execute(f"SELECT * FROM vardi WHERE length(vards) = {skaits}")
+    rezultati = SQL.fetchall()
+
+    dati = []
+
+    for ieraksts in rezultati:
+        dati.append({"vards": ieraksts[1]})
+
+    datiJson = jsonify(dati)
+    return datiJson
+
+@app.route('/izveidotDB')
+def izveidotDB():
+  DB = sqlite3.connect("dati.db")  #savienojums ar datu bazi
+  SQL = DB.cursor()
+  SQL.execute(""" CREATE TABLE IF NOT EXISTS vardi(
+      id INTEGER NOT NULL UNIQUE,
+      vards TEXT,
+      PRIMARY KEY ("id" AUTOINCREMENT)
+  ) """)
+  return "DB izveidota"
 
 @app.route('/top/labakais')
 def labakais():
