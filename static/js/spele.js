@@ -7,36 +7,26 @@ let vardi8   = ['kukainis', 'liktenis', 'pīlādzis',  'taurenis',  'uzdevums', 
 let vardi9   = ['gliemezis', 'dzirnavas', 'draudzība', 'dzejnieks', 'biezpiens', 'mīlestība', 'patiesība', 'pavasaris', 'skolotājs', 'zvejnieks', 'zvirbulis']
 let vardi10   = ['kartupelis', 'lakstīgala', 'varavīksne',  'basketbols',  'rakstnieks', 'Lieldienas',  'strēlnieks',  'valodnieks'];
 
-function generet(){
+window.addEventListener('load', function(){
+    let pogaGeneret = document.getElementById('generet');
     let select = document.getElementById('izvele');
-    let izvele = select.options[select.selectedIndex].value;
-    let vardi = [];
 
-    if(izvele == 4){
-        vardi = vardi4;
-    }else if(izvele == 5){
-        vardi = vardi5;
-    }else if(izvele == 6){
-        vardi = vardi6;
-    }else if(izvele == 7){
-        vardi = vardi7;
-    }else if(izvele == 8){
-        vardi = vardi8;
-    }else if(izvele == 9){
-        vardi = vardi9;
-    }else if(izvele == 10){
-        vardi = vardi10;
-    }
+    pogaGeneret.addEventListener('click', async function(){
+        let izvele = select.options[select.selectedIndex].value;    
+        let saite = "/generet/" + name + "/" + izvele;        
+        let atbilde = await fetch(saite);
+        let atbildeJson = await atbilde.json()
 
-    spelesLaukums();
+        spelesLaukums();
 
-    let randomNr = getRandomInt(vardi.length - 1);
+        console.log(atbildeJson);
+        document.getElementById("vards").innerHTML = atbildeJson.vards;
+        
+    })
+})
 
-    vards = vardi[randomNr];
 
-    document.getElementById("vards").innerHTML = sajaukt(vards);
 
-}
 
 function sajaukt(jVards){
     var arr = jVards.split('');           // Convert String to array
@@ -63,6 +53,22 @@ function spelesLaukums(){
 
     laukums.innerHTML = "<p>Sajauktais vārds:<div id='vards'></div></p><input type='text' id='atbilde'/><button onclick='parbaudit()'>Pārbaudīt</button>";
 }
+
+async function parbaudit() {
+    let vards = document.getElementById('atbilde').value;
+    let saite = "/parbaudit/" + name + "/" + vards;   
+    let atbilde = await fetch(saite);
+    let atbildeJson = await atbilde.json()
+    
+    alert(atbildeJson.rezultats);
+
+    if(atbildeJson.status == "1"){
+        document.getElementById("vards").innerHTML = "";
+        document.getElementById('atbilde').value = "";
+    }
+
+}
+
 
 function parbaudit(){
     let atbilde = document.getElementById('atbilde').value;

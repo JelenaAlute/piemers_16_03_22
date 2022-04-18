@@ -10,6 +10,14 @@ SQL.execute(""" CREATE TABLE IF NOT EXISTS vardi(
     PRIMARY KEY ("id" AUTOINCREMENT)
 ) """)
 
+SQL.execute(""" CREATE TABLE IF NOT EXISTS speletaji(
+    id INTEGER NOT NULL UNIQUE,
+    vards TEXT,
+    minejums TEXT,
+    rezultats INTEGER,
+    PRIMARY KEY ("id" AUTOINCREMENT)
+) """)
+
 for i in range(4, 11):
     with open ("dati/vardi{i}.json", "r", encoding="utf-8") as f:
        dati=f.read()
