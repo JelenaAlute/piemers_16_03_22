@@ -19,15 +19,18 @@ SQL.execute(""" CREATE TABLE IF NOT EXISTS speletaji(
 ) """)
 
 for i in range(4, 11):
-    with open ("dati/vardi{i}.json", "r", encoding="utf-8") as f:
-       dati=f.read()
-       dati=json.loads(dati)
+  with open (f"dati/vardi{i}.json", "r", encoding="utf-8") as f:
+    dati=f.read()
+    
+    print(f"dati/vardi{i}.json")
+    datiJson=json.loads(dati)
+    
 
-for ieraksts in datiJson['vardiFaila']:
-  SQL.execute("INSERT INTO vardi (vards) VALUES (:vards)",{'vards':ieraksts['vards']})
-  print("Veicam ierakstu!")
-  print(ieraksts['vards'])
-  print("=============")
+  for ieraksts in datiJson['vardiFaila']:
+    SQL.execute("INSERT INTO vardi (vards) VALUES (:vards)",{'vards':ieraksts['vards']})
+    print("Veicam ierakstu!")
+    print(ieraksts['vards'])
+    print("=============")
 
 DB.commit()
 SQL.close()

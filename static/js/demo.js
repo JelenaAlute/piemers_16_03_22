@@ -1,9 +1,9 @@
 document.getElementById('poga').addEventListener('click', () => {
-  let ievade =document.getElementById('ievade');
-  let ievadeText = ievade.value;
-  ievade.value ="";
+  let name =document.getElementById('name');
+  let nameText = name.value;
+  name.value ="";
 
-  let datiJson = {"datiY": ievadeText};
+  let datiJson = {"datiY": nameText};
 
   sutitDatus(datiJson);
     
